@@ -91,16 +91,36 @@
 </div>
 <hr>
 
+
+<div>
+  <p>Selected Team: <span id="display-team">_____________</span></p>
+  <p>Latest (Adjusted) Closing Price: <span id="display-latest-closing-price">__________</span></p>
+</div>
+
+
+
 <div id="dataviz-container"></div>
-<script type="text/javascript">
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript"> <script>
 
 var symbol, apiKey, dates, closingPrices;
 var inputApiKey = document.getElementById("my-api-key");
+var inputSelect = document.getElementById("my-sport-selector");
+document.getElementById("my-submit-btn").onclick = function() {
+    symbol = inputSelect.value;
+    document.getElementById("display-team").innerHTML = symbol;
+    apiKey = inputApiKey.value;
+    var requestUrl = "https://api.the-odds-api.com/v3/odds?sport=soccer_usa_mls&region=us&mkt=h2h" + "&apikey=" + apiKey
+    console.log("REQUEST URL:", requestUrl);
+    fetch(requestUrl)
+                .then(response => {
+                    console.log("RESPONSE", response)
+                    return response.json()
+                })
 
 
 
 
 
-
-
+  
   </body>
