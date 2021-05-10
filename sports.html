@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Stocks Dashboard</title>
+    <title>My MLS Team's Odds</title>
 </head>
 <body style="background-color:white;">
   <h1 style="font-size:75px; color:black;">Live Sports Odds</h1>
@@ -105,14 +105,19 @@
         // ... 5) overwrite the HTML display values (team, latest close)
         // ... 6) make a dataviz
         //
-        var team, apiKey, dates, closingPrices;
+        var team, apiKey, playing_teams, closingPrices;
         var inputApiKey = document.getElementById("my-api-key");
         var inputSelect = document.getElementById("my-team-selector");
         document.getElementById("my-submit-btn").onclick = function() {
             team = inputSelect.value;
             document.getElementById("display-team").innerHTML = team;
+            
+
             apiKey = inputApiKey.value;
-            var requestUrl = "https://api.the-odds-api.com/v3/odds/?sport=soccer_usa_mls&region=us&mkt=h2h&dateFormat=iso" +"&apiKey=" + apiKey
+            document.getElementById("display-latest-odds").innerHTML = "TBU";
+
+            //var requestUrl = "https://api.the-odds-api.com/v3/odds/?sport=soccer_usa_mls&region=us&mkt=h2h&dateFormat=iso" +"&apiKey=" + apiKey
+            var requestUrl = "https://api.the-odds-api.com/v3/odds/?sport=soccer_usa_mls&region=us&mkt=h2h&dateFormat=iso&apiKey=e72f1251b3be1811c37ed5e6daa2519f"
             console.log("REQUEST URL:", requestUrl);
             fetch(requestUrl)
                 .then(response => {
@@ -121,24 +126,24 @@
                 })
                 .then(data => {
                     //console.log("DATA", data) // this is the data you're looking for
-                    dates = Object.keys(data["Time Series (Daily)"]);
-                    var priceData = Object.values(data["Time Series (Daily)"]);
-                    closingPrices = priceData.map(x => x["4. close"]);
+                    playing_teams = Object.keys(data["teams"]);
+                    var priceData = Object.values(data["teams"]);
+                    //closingPrices = priceData.map(x => x["4. close"]);
                     //console.log(closingPrices);
-                    document.getElementById("display-latest-odds").innerHTML = closingPrices[0];
-                    var trace1 = {
-                        x: dates,
-                        y: closingPrices,
-                        mode: 'lines'
-                    };                   
+                    document.getElementById("display-latest-odds").innerHTML = playing_teams;
+                    //var trace1 = {
+                    //    x: playing_teams,
+                    //    y: closingPrices,
+                    //    mode: 'lines'
+                    //};                   
 
-                    var data = [ trace1 ];
+                    //var data = [ trace1 ];
 
-                    var layout = {
+                    //var layout = {
                         title:'Closing prices of ' + team
-                    };
+                    //};
 
-                    Plotly.newPlot('dataviz-container', data, layout);
+                    //Plotly.newPlot('dataviz-container', data, layout);
                 })
                 .catch(err => {
                     console.error("FETCH ERR", err)
@@ -147,18 +152,18 @@
         };
         
 
-        console.log("TODO: RESPOND TO BUTTON CLICKS AND CAPTURE FORM INPUTS")
+        //console.log("TODO: RESPOND TO BUTTON CLICKS AND CAPTURE FORM INPUTS")
 
         //var apiKey = "TODO"
         //var team = "TODO"
-        var requestUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&team=" + team + "&apikey=" + apiKey
+        var requestUrl = "https://api.the-odds-api.com/v3/odds/?sport=soccer_usa_mls&region=us&mkt=h2h&dateFormat=iso&apiKey=e72f1251b3be1811c37ed5e6daa2519f"
         console.log("REQUEST URL:", requestUrl)
 
-        console.log("TODO: FETCH DATA")
+        //console.log("TODO: FETCH DATA")
 
-        console.log("TODO: DISPLAY DATA")
+        //console.log("TODO: DISPLAY DATA")
 
-        console.log("TODO: DATAVIZ")
+        //console.log("TODO: DATAVIZ")
 
     </script>
 </body>
