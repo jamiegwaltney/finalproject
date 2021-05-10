@@ -7,7 +7,7 @@
     <title>My MLS Team's Odds</title>
 </head>
 <body style="background-color:white;">
-  <h1 style="font-size:75px; color:black;">Live Sports Odds</h1>
+  <h2 style="font-size:55px; color:black;">Major League Soccer - Sports Betting App</h2>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
       <header>
           <nav class="navbar navbar-expand-lg">
@@ -36,7 +36,7 @@
         <br><br>
   
 
-        <h3>Inputs "work in progress - Sorin"</h3>
+        <h3>Enter Your Information</h3>
 
 
     <div>
@@ -44,7 +44,7 @@
 
         <label for="my-email" class="form-label">Cash to Wager: $</label>
         
-        <input type="number" name="wager" id="wager" placeholder="Cash" value="0">
+        <input type="number" name="wager" id="wager" placeholder="Cash" value="0" min="0">
         <br><br>
 
 
@@ -82,18 +82,18 @@
         </select>
         <br>
         <br>
-        <button class="btn btn-primary" id="my-submit-btn">Place Your Bet!</button>
+        <button class="btn btn-primary" id="my-submit-btn">Place Bet!</button>
         
     </div>
 
     <hr>
 
-    <h2>Outputs</h2>
+    <h2>Good Luck!</h2>
 
     <div>
         <p>Selected Team: <span id="display-team">_____________</span></p>
-        <p>Latest Odds: <span id="display-latest-odds">__________</span></p>
-        <p>Profit Potential: <span id="display-profit">__________</span></p>
+        <p>Odds to Win 2021 MLS Cup: <span id="display-latest-odds">__________</span></p>
+        <p>Your Profit Potential: <span id="display-profit">__________</span></p>
         
     </div>
 
@@ -230,7 +230,7 @@
                 
                 
                 //alert("\nPotential Profit = $"+profitvalue.toFixed(2)+"\n\nOdds = " + odds )
-                //alert("\n\n\nPLAY RESPONSIBLY!")
+                alert("\n\n\nPLAY RESPONSIBLY!")
             
                 
                
