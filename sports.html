@@ -1,81 +1,57 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
+<head>
+    <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <title>US Major League Soccer Betting Odds</title>
-    
-  </head>
-  <div class="row">
-    <div class="col-md-1">
-    </div>
-    <div class="col-md-10">
-      <h1 style="font-size:60px; color:black;">US Major League Soccer Betting Odds</h1>
-      <body style="background-color:white;">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-          
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light " style="background-color:lightblue;">
-  <!-- Container wrapper -->
-  <div class="container-fluid">
 
-    <!-- Toggle button -->
-    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Collapsible wrapper -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <!-- Link -->
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">The Teams</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sports.html">Learn The Odds!</a>
-      </li>
-
-      </ul>
-              
-          </div>
-                         
-        </nav>
-      </header>
-</body>
-
-
-
-        <div class="container">
-            &nbsp
-            &nbsp
-            &nbsp
-            &nbsp
-            &nbsp
+    <title>My MLS Team's Odds</title>
+</head>
+<body style="background-color:white;">
+  <h2 style="font-size:55px; color:black;">Major League Soccer - Sports Betting App</h2>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+      <header>
+          <nav class="navbar navbar-expand-lg">
+              <div class="container-fluid">
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="about.html">About Our Project</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="sports.html">Sport Betting</a>
+                    </li>
+                    
+                </div>
+             
+            </nav>
+        </header>
 
         <br><br>
   
 
-        <h3>Inputs "work in progress - Sorin"</h3>
-
+        <h3>Enter Your Information</h3>
 
 
     <div>
-        <label>The Odds API Key:</label>
-        <input type="text" name="api-key" id="my-api-key" placeholder="Betting API Key" value="e72f1251b3be1811c37ed5e6daa2519f">
-        <br>
+     <br>
+
+        <label for="my-email" class="form-label">Cash to Wager: $</label>
+        
+        <input type="number" name="wager" id="wager" placeholder="Cash" value="0" min="0">
+        <br><br>
+
+
 
         <label>Your Favorite MLS Team:</label>
         <select id="my-team-selector">
-            <option value="DC United" selected>DC United</option>            
+            <option value="DC United" >DC United</option>            
             <option value="Atlanta United FC"> Atlanta United FC</option>            
             <option value='Chicago Fire FC'>Chicago Fire FC</option>
             <option value='FC Cincinnati'>FC Cincinnati</option>
@@ -105,90 +81,171 @@
 
         </select>
         <br>
-
-        <button id="my-submit-btn">Go!</button>
+        <br>
+        <button class="btn btn-primary" id="my-submit-btn">Place Bet!</button>
+        
     </div>
 
     <hr>
 
-    <h2>Outputs</h2>
+    <h2>Good Luck!</h2>
 
     <div>
         <p>Selected Team: <span id="display-team">_____________</span></p>
-        <p>Latest Odds: <span id="display-latest-odds">__________</span></p>
+        <p>Odds to Win 2021 MLS Cup: <span id="display-latest-odds">__________</span></p>
+        <p>Your Profit Potential: <span id="display-profit">__________</span></p>
+        
     </div>
 
     <div id="dataviz-container"></div>
 
+
+
+
+
     
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-        //
-        // When the button is clicked:
-        // ... 1) capture input values
-        // ... 2) compile the right URL given the provided inputs
-        // ... 3) fetch data from that URL
-        // ... 4) crunch the data
-        // ... 5) overwrite the HTML display values (team, latest close)
-        // ... 6) make a dataviz
-        //
-        var team, apiKey, dates, closingPrices;
-        var inputApiKey = document.getElementById("my-api-key");
-        var inputSelect = document.getElementById("my-team-selector");
-        document.getElementById("my-submit-btn").onclick = function() {
-            team = inputSelect.value;
-            document.getElementById("display-team").innerHTML = team;
-            apiKey = inputApiKey.value;
-            var requestUrl = "https://api.the-odds-api.com/v3/odds/?sport=soccer_usa_mls&region=us&mkt=h2h&dateFormat=iso" +"&apiKey=" + apiKey
-            console.log("REQUEST URL:", requestUrl);
-            fetch(requestUrl)
-                .then(response => {
-                    console.log("RESPONSE", response)
-                    return response.json()
-                })
-                .then(data => {
-                    //console.log("DATA", data) // this is the data you're looking for
-                    dates = Object.keys(data["Time Series (Daily)"]);
-                    var priceData = Object.values(data["Time Series (Daily)"]);
-                    closingPrices = priceData.map(x => x["4. close"]);
-                    //console.log(closingPrices);
-                    document.getElementById("display-latest-odds").innerHTML = closingPrices[0];
-                    var trace1 = {
-                        x: dates,
-                        y: closingPrices,
-                        mode: 'lines'
-                    };                   
+      
+            
+            var cash = document.getElementById("wager");
+            var team = document.getElementById("my-team-selector");  
+            var savebutton = document.getElementById("my-submit-btn");
+            var odds = 0;
+            var profit = 0;
+            var oddstodecimal = 0;
+            var profitvalue = 0;
+            var cashvalue = 0;
 
-                    var data = [ trace1 ];
 
-                    var layout = {
-                        title:'Closing prices of ' + team
-                    };
+            //String mysz2 = mysz.replaceAll("\\s","");
+            
 
-                    Plotly.newPlot('dataviz-container', data, layout);
-                })
-                .catch(err => {
-                    console.error("FETCH ERR", err)
-                })
 
-        };
-        
+            function calculate()   {
 
-        console.log("TODO: RESPOND TO BUTTON CLICKS AND CAPTURE FORM INPUTS")
+                teamshow = team.value;
+                document.getElementById("display-team").innerHTML = teamshow;
 
-        //var apiKey = "TODO"
-        //var team = "TODO"
-        var requestUrl = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&team=" + team + "&apikey=" + apiKey
-        console.log("REQUEST URL:", requestUrl)
+                console.log(teamshow +" "+ "is my ride or die");
+                
+                
+                if (teamshow === "DC United") {
+                odds = 10000;
+                } 
+                else if (teamshow === "Atlanta United FC") {
+                odds = 2800;
+                } 
+                else if (teamshow === 'Chicago Fire FC') {
+                odds = 3300;
+                } 
+                else if (teamshow === 'FC Cincinnati') {
+                odds = 5000;
+                } 
+                else if (teamshow === "Columbus Crew SC") {
+                odds = 900;
+                } 
+                else if (teamshow === "Inter Miami CF") {
+                odds = 2200;
+                } 
+                else if (teamshow === "CF Montréal") {
+                odds = 5000;
+                } 
+                else if (teamshow === "Nashville SC") {
+                odds = 5000;
+                } 
+                else if (teamshow === "New England Revolution") {
+                odds = 2500;
+                } 
+                else if (teamshow === "New York City FC") {
+                odds = 1000;
+                } 
+                else if (teamshow === "New York Red Bulls") {
+                odds = 2300;
+                } 
+                else if (teamshow === "Orlando City SC") {
+                odds = 1800;
+                } 
+                else if (teamshow === "Philadelphia Union") {
+                odds = 1200;
+                } 
+                else if (teamshow === "Toronto FC") {
+                odds = 1200;
+                } 
+                else if (teamshow === "Austin FC") {
+                odds = 6600;
+                } 
+                else if (teamshow === "Colorado Rapids") {
+                odds = 4000;
+                } 
+                else if (teamshow === "FC Dallas") {
+                odds = 3300;
+                } 
+                else if (teamshow === "Houston Dynamo FC") {
+                odds = 10000;
+                } 
+                else if (teamshow === "Sporting Kansas City") {
+                odds = 1600;
+                } 
+                else if (teamshow === "LA Galaxy") {
+                odds = 2500;
+                } 
+                else if (teamshow === "Los Angeles FC") {
+                odds = 500;
+                } 
+                else if (teamshow === "Minnesota United FC") {
+                odds = 2500;
+                } 
+                else if (teamshow === "Portland Timbers") {
+                odds = 2000;
+                } 
+                else if (teamshow === "Real Salt Lake") {
+                odds = 6600;
+                } 
+                else if (teamshow === "San Jose Earthquakes") {
+                odds = 6600;
+                } 
+                else if (teamshow === "Seattle Sounders FC") {
+                odds = 800;
+                } 
+                else if (teamshow === "Vancouver Whitecaps FC") {
+                odds = 6600;
+                } 
 
-        console.log("TODO: FETCH DATA")
 
-        console.log("TODO: DISPLAY DATA")
 
-        console.log("TODO: DATAVIZ")
 
-    </script>
-        </div>
+                document.getElementById("display-latest-odds").innerHTML = odds;
+                
+                
+
+
+                cashvalue = parseFloat(cash.value);
+                console.log("I can only bet"+" " + cashvalue);
+
+                oddstodecimal = (parseFloat(odds/100)+1); 
+                profitvalue = parseFloat(oddstodecimal) * parseFloat(cashvalue);
+                
+                
+                //alert("\nPotential Profit = $"+profitvalue.toFixed(2)+"\n\nOdds = " + odds )
+                alert("\n\n\nPLAY RESPONSIBLY!")
+            
+                
+               
+                
+                document.getElementById("display-profit").innerHTML = profitvalue;
+
+            } 
+            
+            savebutton.addEventListener("click", calculate)
+            
+            
+
+        </script>
+  
+       
+    
 </body>
 </html>
-
